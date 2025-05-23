@@ -1,6 +1,6 @@
 {
   "name": "react-data-table",
-  "repository": "https://github.com/Kguie/data-table.git",
+  "repository": "https://github.com/Kguie/react-data-table.git",
   "version": "1.0.0",
   "description": "Custom data table for React",
   "type": "module",
@@ -11,6 +11,9 @@
     "dist",
     "README.md"
   ],
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "dev": "vite",
     "lint": "eslint .",
@@ -19,11 +22,21 @@
     "build": "tsc --p ./tsconfig.build.json && vite build",
     "rebuild": "yarn clean && yarn build"
   },
+  "sideEffects": [
+    "**/*.css"
+  ],
   "dependencies": {
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
+  "peerDependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
   "devDependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "vite-plugin-lib-inject-css": "^2.2.2",
     "@eslint/js": "^9.25.0",
     "@types/node": "^22.15.21",
     "@types/react": "^19.1.2",

@@ -26,6 +26,7 @@
         "noUncheckedSideEffectImports": true
     },
     "include": [
-        "lib"
+        "lib",
+        "globals.d.ts"
     ],
 }

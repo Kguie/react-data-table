@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import type { Column } from "./types";
+import styles from './styles.module.css'
 
 interface Props<T> {
   data: T[];
@@ -46,12 +47,7 @@ export function DataTable<T extends object>({
   }, [sorted, page, pageSize]);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-      }}>
+    <div className={styles.container}>
       {searchable && (
         <input
           placeholder="Rechercher..."
