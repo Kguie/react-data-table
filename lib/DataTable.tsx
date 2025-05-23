@@ -50,7 +50,7 @@ export function DataTable<T extends object>({
     <div className={styles.container}>
       {searchable && (
         <input
-          placeholder="Rechercher..."
+          placeholder="Filter..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
