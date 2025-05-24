@@ -1,12 +1,15 @@
 import { useMemo, useState } from "react";
-import type { Column } from "./types";
-import styles from './styles.module.css'
+import type { Column } from "../types";
+
+import '../index.css';
+import Header from "./header/Header";
 
 interface Props<T> {
   data: T[];
   columns: Column[];
   pageSize?: number;
-  searchable?: boolean;
+  hasSearch?: boolean;
+  hasPagination?: boolean;
 }
 
 function getNestedValue(obj: any, path: string): any {
@@ -17,7 +20,7 @@ export function DataTable<T extends object>({
   data,
   columns,
   pageSize = 10,
-  searchable = false,
+  hasSearch = false,
 }: Props<T>) {
   const [search, setSearch] = useState("");
   const [sortKey, setSortKey] = useState<string | null>(null);
@@ -25,10 +28,10 @@ export function DataTable<T extends object>({
   const [page, setPage] = useState(1);
 
   const filtered = useMemo(() => {
-    return searchable
+    return hasSearch
       ? data.filter((row) =>
-          JSON.stringify(row).toLowerCase().includes(search.toLowerCase())
-        )
+        JSON.stringify(row).toLowerCase().includes(search.toLowerCase())
+      )
       : data;
   }, [search, data]);
 
@@ -47,14 +50,13 @@ export function DataTable<T extends object>({
   }, [sorted, page, pageSize]);
 
   return (
-    <div className={styles.container}>
-      {searchable && (
-        <input
-          placeholder="Filter..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
-      )}
+    <div className="flex flex-col gap-2">
+      <Header
+        hasPagination
+        hasSearch
+        searchValue={search}
+        setSearchValue={(e: React.ChangeEvent<HTMLInputElement>) => setSearch(e.target.value)}
+      />
       <table>
         <thead>
           <tr>
@@ -64,7 +66,7 @@ export function DataTable<T extends object>({
                 onClick={() =>
                   col.sortable &&
                   (setSortKey(col.key),
-                  setSortAsc(sortKey === col.key ? !sortAsc : true))
+                    setSortAsc(sortKey === col.key ? !sortAsc : true))
                 }>
                 {col.title}
               </th>
