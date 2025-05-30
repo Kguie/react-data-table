@@ -2,11 +2,12 @@ import { useMemo, useState } from "react";
 import type { Column } from "../types";
 
 import '../index.css';
-import Header from "./header/Header";
+import Header from "./header/dataTableHeader";
 
 interface Props<T> {
   data: T[];
   columns: Column[];
+  mode?: "auto" | "dark" | "light";
   pageSize?: number;
   hasSearch?: boolean;
   hasPagination?: boolean;
@@ -16,7 +17,8 @@ function getNestedValue(obj: any, path: string): any {
   return path.split(".").reduce((acc, part) => acc?.[part], obj);
 }
 
-export function DataTable<T extends object>({
+export function DataTable2<T extends object>({
+  mode = "auto",
   data,
   columns,
   pageSize = 10,

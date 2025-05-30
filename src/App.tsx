@@ -1,4 +1,4 @@
-import { DataTable } from "../lib/components/DataTable";
+import { DataTable } from "../lib/components/dataTable";
 import type { Column } from "../lib/types";
 
 const data = [
@@ -157,5 +157,5 @@ const columns: Column[] = [
 ];
 
 export default function App() {
-  return <DataTable data={data} columns={columns} hasSearch hasPagination />;
+  return <DataTable data={data} columns={columns} children={undefined}></DataTable>;
 }
