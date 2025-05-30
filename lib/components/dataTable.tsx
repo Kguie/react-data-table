@@ -1,5 +1,8 @@
-import React, { useState, useMemo } from 'react';
-import DataTableContext from '../contexts/dataTableContext';
+import { useState, useMemo } from "react";
+
+import DataTableContext from "../contexts/dataTableContext";
+import { getNestedValue } from "../utils/utils";
+import "../index.css"
 
 interface Column {
     key: string;
@@ -11,21 +14,19 @@ interface DataTableProviderProps<T> {
     data: T[];
     columns: Column[];
     pageSize?: number;
-    mode?: 'auto' | 'dark' | 'light';
+    mode?: "auto" | "dark" | "light";
     children: React.ReactNode;
 }
 
-function getNestedValue(obj: any, path: string): any {
-    return path.split('.').reduce((acc, part) => acc?.[part], obj);
-}
+
 
 export function DataTable<T extends object>({
     data,
     columns,
     pageSize = 10,
-    mode = 'auto',
+    mode = "auto",
     children }: DataTableProviderProps<T>) {
-    const [search, setSearch] = useState('');
+    const [search, setSearch] = useState("");
     const [sortKey, setSortKey] = useState<string | null>(null);
     const [sortAsc, setSortAsc] = useState(true);
     const [page, setPage] = useState(1);
@@ -74,7 +75,9 @@ export function DataTable<T extends object>({
                 mode
             }}
         >
-            {children}
+            <div className="flex flex-col gap-2">
+                {children}
+            </div>
         </DataTableContext.Provider>
     );
 }

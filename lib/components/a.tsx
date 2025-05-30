@@ -22,6 +22,7 @@ export function DataTable2<T extends object>({
   data,
   columns,
   pageSize = 10,
+  hasPagination,
   hasSearch = false,
 }: Props<T>) {
   const [search, setSearch] = useState("");

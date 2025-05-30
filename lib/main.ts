@@ -1,1 +1,3 @@
-export {DataTable} from './components/a';
+export {DataTable} from './components/dataTable';
+export {DataTableSearch} from './components/dataTableSearch/dataTableSearch';
+export {DataTableBody} from './components/dataTableBody/dataTableBody';

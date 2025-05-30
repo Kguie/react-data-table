@@ -1,4 +1,6 @@
 import { DataTable } from "../lib/components/dataTable";
+import { DataTableSearch } from "../lib/components/dataTableSearch/dataTableSearch";
+import { DataTableBody } from "../lib/main";
 import type { Column } from "../lib/types";
 
 const data = [
@@ -157,5 +159,10 @@ const columns: Column[] = [
 ];
 
 export default function App() {
-  return <DataTable data={data} columns={columns} children={undefined}></DataTable>;
+  return <div className="p-4">
+    <DataTable data={data} columns={columns}  >
+      <DataTableSearch iconColor="white" />
+      <DataTableBody />
+    </DataTable>
+  </div>
 }
