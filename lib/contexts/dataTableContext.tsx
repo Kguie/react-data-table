@@ -7,6 +7,7 @@ interface DataTableContextProps<T> {
     mode: 'auto' | 'dark' | 'light';
     columns: Column[];
     pageSize: number;
+    setPageSize: (pageSize: number) => void;
     search: string;
     setSearch: (value: string) => void;
     sortKey: string | null;
@@ -18,6 +19,7 @@ interface DataTableContextProps<T> {
     filteredData: T[];
     sortedData: T[];
     paginatedData: T[];
+    hasPagination: boolean;
 }
 
 const DataTableContext = createContext<DataTableContextProps<any> | undefined>(undefined);

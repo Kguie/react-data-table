@@ -3,6 +3,8 @@ import { useState, useMemo } from "react";
 import DataTableContext from "../contexts/dataTableContext";
 import { getNestedValue } from "../utils/utils";
 import "../index.css"
+import React from "react";
+import { DataTablePagination } from "../main";
 
 interface Column {
     key: string;
@@ -18,18 +20,16 @@ interface DataTableProviderProps<T> {
     children: React.ReactNode;
 }
 
-
-
 export function DataTable<T extends object>({
     data,
     columns,
-    pageSize = 10,
     mode = "auto",
     children }: DataTableProviderProps<T>) {
     const [search, setSearch] = useState("");
     const [sortKey, setSortKey] = useState<string | null>(null);
     const [sortAsc, setSortAsc] = useState(true);
     const [page, setPage] = useState(1);
+    const [pageSize, setPageSize] = useState<number>(20);
 
     if (!children) return null;
 
@@ -55,12 +55,20 @@ export function DataTable<T extends object>({
         return sortedData.slice(start, start + pageSize);
     }, [sortedData, page, pageSize]);
 
+
+    const hasPagination = React.Children.toArray(children).some(
+        (child) =>
+            React.isValidElement(child) && child.type === DataTablePagination
+    );
+
+
     return (
         <DataTableContext.Provider
             value={{
                 data,
                 columns,
                 pageSize,
+                setPageSize,
                 search,
                 setSearch,
                 sortKey,
@@ -72,10 +80,11 @@ export function DataTable<T extends object>({
                 filteredData,
                 sortedData,
                 paginatedData,
-                mode
+                mode,
+                hasPagination
             }}
         >
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-3">
                 {children}
             </div>
         </DataTableContext.Provider>

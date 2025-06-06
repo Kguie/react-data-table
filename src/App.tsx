@@ -1,4 +1,5 @@
 import { DataTable } from "../lib/components/dataTable";
+import { DataTablePagination } from "../lib/components/dataTablePagination/dataTablePagination";
 import { DataTableSearch } from "../lib/components/dataTableSearch/dataTableSearch";
 import { DataTableBody } from "../lib/main";
 import type { Column } from "../lib/types";
@@ -158,11 +159,20 @@ const columns: Column[] = [
   { key: "address.street", title: "Street", sortable: true },
 ];
 
+const superData = () => {
+  const newData: any[] = []
+  for (let i = 0; i < 10; i++) {
+    newData.push(...data)
+  }
+  return newData
+}
+
 export default function App() {
   return <div className="p-4">
-    <DataTable data={data} columns={columns}  >
+    <DataTable data={superData()} columns={columns}  >
       <DataTableSearch iconColor="white" />
       <DataTableBody />
+      <DataTablePagination />
     </DataTable>
   </div>
 }
