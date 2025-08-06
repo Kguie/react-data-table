@@ -29,7 +29,7 @@ export function DataTableBody() {
                                 key={col.key}
                                 title={col.title}
                                 className={`
-                 cursor-pointer py-2 px-4
+                 cursor-pointer p-4
                   ${i === 0 ? "rounded-l-lg" : ""}
                   ${i === columns.length - 1 ? "rounded-r-lg" : ""}
                 `}
