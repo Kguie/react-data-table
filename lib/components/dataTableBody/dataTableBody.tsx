@@ -5,6 +5,7 @@ import { getNestedValue } from "../../utils/utils";
 
 export function DataTableBody() {
     const { paginatedData, columns, setSortKey, sortKey, setSortAsc, sortAsc, pageSize, setPageSize, filteredData, hasPagination } = useDataTableContext<any>();
+    const dataToDisplay = hasPagination ? paginatedData : filteredData;
 
     return <>
         <PaginationHeader on={hasPagination} total={filteredData.length} pageSize={pageSize} setPageSize={setPageSize} />
@@ -29,7 +30,7 @@ export function DataTableBody() {
                 </tr>
             </thead>
             <tbody>
-                {paginatedData.map((row, rowIndex) => (
+                {dataToDisplay.map((row, rowIndex) => (
                     <tr key={rowIndex}>
                         {columns.map((col, colIndex) => (
                             <td className={`${rowIndex === 0 ? "pt-4 pb-1" : "py-1"} ${colIndex === 0 ? "pl-4" : "pl-2"} pr-2`}
