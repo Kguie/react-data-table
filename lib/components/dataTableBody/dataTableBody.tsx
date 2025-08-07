@@ -16,10 +16,10 @@ export function DataTableBody({
         setSortKey, sortKey,
         setSortAsc, sortAsc,
         pageSize, setPageSize,
-        filteredData, hasPagination,
+        filteredData, sortedData, hasPagination,
         language
     } = useDataTableContext();
-    const dataToDisplay = hasPagination ? paginatedData : filteredData;
+    const dataToDisplay = hasPagination ? paginatedData : sortedData;
 
     return (
         <>
@@ -100,7 +100,7 @@ function PaginationHeader({ on, total, pageSize, setPageSize, language }: { lang
                 className="bg-transparent outline-none text-default-400 text-small p- cursor-pointer"
                 onChange={(e) => setPageSize(Number(e.target.value))}
             >
-                {sizes.map((size) => <option className="bg-transparent text-black cursot-pointer" value={size}>{size}</option>)}
+                {sizes.map((size, index) => <option key={index} className="bg-transparent text-black cursot-pointer" value={size}>{size}</option>)}
             </select>
         </label>
     </div>
