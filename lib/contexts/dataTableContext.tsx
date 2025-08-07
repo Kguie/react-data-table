@@ -2,6 +2,8 @@ import { createContext, useContext } from 'react';
 
 import type { Column } from '../types';
 
+type language = "fr" | "en"
+
 interface DataTableContextProps<T> {
     data: T[];
     mode: 'auto' | 'dark' | 'light';
@@ -20,6 +22,7 @@ interface DataTableContextProps<T> {
     sortedData: T[];
     paginatedData: T[];
     hasPagination: boolean;
+    language: language;
 }
 
 const DataTableContext = createContext<DataTableContextProps<any> | undefined>(undefined);

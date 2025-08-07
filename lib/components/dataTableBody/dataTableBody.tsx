@@ -1,22 +1,31 @@
 import { ChevronUpIcon } from "@heroicons/react/24/outline";
+import { useMemo } from "react";
 
 import { useDataTableContext } from "../../contexts/dataTableContext";
 import { getNestedValue } from "../../utils/utils";
 
-export function DataTableBody() {
+interface DataTableBodyProps {
+    dense?: boolean
+}
+
+export function DataTableBody({
+    dense = false
+}: DataTableBodyProps) {
     const {
         paginatedData, columns,
         setSortKey, sortKey,
         setSortAsc, sortAsc,
         pageSize, setPageSize,
-        filteredData, hasPagination
-    } = useDataTableContext<any>();
+        filteredData, hasPagination,
+        language
+    } = useDataTableContext();
     const dataToDisplay = hasPagination ? paginatedData : filteredData;
 
     return (
         <>
             <PaginationHeader
                 on={hasPagination}
+                language={language}
                 total={filteredData.length}
                 pageSize={pageSize}
                 setPageSize={setPageSize}
@@ -29,7 +38,8 @@ export function DataTableBody() {
                                 key={col.key}
                                 title={col.title}
                                 className={`
-                 cursor-pointer p-4
+                 cursor-pointer
+                 ${dense ? "p-2" : "p-4"}
                   ${i === 0 ? "rounded-l-lg" : ""}
                   ${i === columns.length - 1 ? "rounded-r-lg" : ""}
                 `}
@@ -62,7 +72,7 @@ export function DataTableBody() {
                             {columns.map((col, colIndex) => (
                                 <td
                                     key={col.key}
-                                    className={`py-2 px-4 ${colIndex === 0 ? "pl-6" : ""}`}
+                                    className={`${dense ? "py-1 px-2" : "py-2 px-4"} ${colIndex === 0 ? (dense ? "pl-2" : "pl-4") : ""}`}
                                 >
                                     {String(getNestedValue(row, col.key))}
                                 </td>
@@ -75,14 +85,16 @@ export function DataTableBody() {
     );
 }
 
-function PaginationHeader({ on, total, pageSize, setPageSize }: { on: boolean, total: number, pageSize: number, setPageSize: (value: number) => void }) {
+function PaginationHeader({ on, total, pageSize, setPageSize, language }: { language: "fr" | "en", on: boolean, total: number, pageSize: number, setPageSize: (value: number) => void }) {
     if (!on || total === 0) return null;
     const sizes = [5, 10, 15, 20];
+
+    const label = useMemo(() => language === "fr" ? "Lignes par page:" : "Rows per page:", [language])
 
     return <div className="flex px-4 justify-between items-center">
         <p>Total : <span>{total}</span></p>
         <label className="flex gap-1 items-center text-default-400 text-small">
-            Rows per page:
+            {label}
             <select
                 value={pageSize}
                 className="bg-transparent outline-none text-default-400 text-small p- cursor-pointer"

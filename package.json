@@ -20,7 +20,7 @@
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "build": "tsc --p ./tsconfig.build.json && vite build",
-    "rebuild": "yarn clean && yarn build"
+    "rebuild": "npm run clean && npm run build"
   },
   "sideEffects": [
     "**/*.css"

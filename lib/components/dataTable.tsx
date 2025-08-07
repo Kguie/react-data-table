@@ -17,12 +17,14 @@ interface DataTableProviderProps<T> {
     columns: Column[];
     pageSize?: number;
     mode?: "auto" | "dark" | "light";
+    language?: "fr" | "en"
     children: React.ReactNode;
 }
 
 export function DataTable<T extends object>({
     data,
     columns,
+    language = "fr",
     mode = "auto",
     children }: DataTableProviderProps<T>) {
     const [search, setSearch] = useState("");
@@ -81,7 +83,8 @@ export function DataTable<T extends object>({
                 sortedData,
                 paginatedData,
                 mode,
-                hasPagination
+                hasPagination,
+                language
             }}
         >
             <div className="flex flex-col gap-3">

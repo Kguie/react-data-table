@@ -10,8 +10,9 @@ interface DataTableSearchProps {
 }
 
 export function DataTableSearch({ style, iconColor = "black", fullWidth }: DataTableSearchProps) {
-    const { search, setSearch, mode } = useDataTableContext<any>();
+    const { search, setSearch, mode, language } = useDataTableContext<any>();
 
+    const searchLabel = useMemo(() => language === "fr" ? "Rechercher" : "Search", [language])
     const inputClassName = useMemo(() => {
         let className = "w-full pl-10 pr-4 py-2 border rounded-md text-lg focus:outline-none focus:ring-2 focus:ring-blue-500";
         if (!fullWidth) className += " max-w-sm";
@@ -33,7 +34,7 @@ export function DataTableSearch({ style, iconColor = "black", fullWidth }: DataT
 
     return <div className="relative flex">
         <label htmlFor="data-table-search" className="sr-only">
-            Rechercher dans le tableau
+            {searchLabel}
         </label>
         <span className="absolute inset-y-0 left-0 flex items-center px-2">
             <MagnifyingGlassIcon aria-hidden="true" color={iconColor} className="w-6 h-6" />
@@ -41,7 +42,7 @@ export function DataTableSearch({ style, iconColor = "black", fullWidth }: DataT
         <input
             type="search"
             id="data-table-search"
-            placeholder="Rechercher..."
+            placeholder={searchLabel + "..."}
             value={search}
             style={style}
             onChange={(e) => setSearch(e.target.value)}
