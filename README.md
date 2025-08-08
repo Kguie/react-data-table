@@ -24,13 +24,13 @@ Install from npm or Yarn:
 
 ```bash
 # npm
-npm install react-data-table
+npm install @kguie/react-data-table
 
 # Yarn
-yarn add react-data-table
+yarn add @kguie/react-data-table
 
 # pnpm
-pnpm add react-data-table
+pnpm add @kguie/react-data-table
 ```
 
 Ensure you have React 18+ as a peer dependency:
@@ -50,7 +50,7 @@ import {
   DataTableSearch,
   DataTableBody,
   DataTablePagination
-} from 'react-data-table';
+} from '@kguie/react-data-table';
 
 const columns = [
   { key: 'id',    title: 'ID',    sortable: true },
