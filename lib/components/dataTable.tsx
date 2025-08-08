@@ -26,12 +26,13 @@ export function DataTable<T extends object>({
     columns,
     language = "fr",
     mode = "auto",
+    pageSize: initialPageSize = 20,
     children }: DataTableProviderProps<T>) {
     const [search, setSearch] = useState("");
     const [sortKey, setSortKey] = useState<string | null>(null);
     const [sortAsc, setSortAsc] = useState(true);
     const [page, setPage] = useState(1);
-    const [pageSize, setPageSize] = useState<number>(20);
+    const [pageSize, setPageSize] = useState<number>(initialPageSize);
 
     if (!children) return null;
 

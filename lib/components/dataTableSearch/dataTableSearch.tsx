@@ -37,7 +37,7 @@ export function DataTableSearch({ style, iconColor = "black", fullWidth }: DataT
             {searchLabel}
         </label>
         <span className="absolute inset-y-0 left-0 flex items-center px-2">
-            <MagnifyingGlassIcon aria-hidden="true" color={iconColor} className="w-6 h-6" />
+            <MagnifyingGlassIcon data-testid="google-icon" aria-hidden="true" color={iconColor} className="w-6 h-6" />
         </span>
         <input
             type="search"

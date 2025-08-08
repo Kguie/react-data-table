@@ -33,6 +33,7 @@ export function DataTablePagination() {
         <div className="flex justify-center items-center text-l font-bold mt-2">
             <div className="flex items-center gap-2 rounded-md bg-zinc-600 px-2">
                 <button
+                    data-testid="previous-page-button"
                     onClick={() => setPage(Math.max(1, page - 1))}
                     disabled={page === 1}
                     className={`px-2 py-1 !bg-zinc-600 disabled:opacity-50 disabled:cursor-default
@@ -43,6 +44,7 @@ export function DataTablePagination() {
                 </button>
                 {pagesToDisplay.map((index) =>
                     <button
+                        data-testid="number-page-button"
                         onClick={() => setPage(index)}
                         key={index}
                         className={`px-2 py-1  cursor-pointer ${index === page
@@ -55,6 +57,7 @@ export function DataTablePagination() {
                 )
                 }
                 <button
+                    data-testid="next-page-button"
                     onClick={() => setPage(Math.min(totalPages, page + 1))}
                     disabled={page === totalPages}
                     className={`px-2 py-1 !bg-zinc-600 disabled:opacity-50 
