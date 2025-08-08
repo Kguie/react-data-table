@@ -2,9 +2,8 @@ import { useState, useMemo } from "react";
 
 import DataTableContext from "../contexts/dataTableContext";
 import { getNestedValue } from "../utils/utils";
-import "../index.css"
 import React from "react";
-import { DataTablePagination } from "../main";
+import { DataTablePagination } from "./dataTablePagination/dataTablePagination";
 
 interface Column {
     key: string;

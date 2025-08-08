@@ -15,7 +15,10 @@
         "allowImportingTsExtensions": true,
         "verbatimModuleSyntax": true,
         "moduleDetection": "force",
-        "noEmit": true,
+        "noEmit": false,
+        "declaration": true,
+        "declarationDir": "dist",
+        "emitDeclarationOnly": true,
         "jsx": "react-jsx",
         /* Linting */
         "strict": true,
@@ -23,10 +26,7 @@
         "noUnusedParameters": true,
         "erasableSyntaxOnly": true,
         "noFallthroughCasesInSwitch": true,
-        "noUncheckedSideEffectImports": true,
-        "declaration": true,
-        "declarationDir": "dist",
-        "emitDeclarationOnly": true
+        "noUncheckedSideEffectImports": true
     },
     "include": [
         "lib",

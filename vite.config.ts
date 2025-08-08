@@ -1,12 +1,11 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import { resolve } from 'path';
-import dts from 'vite-plugin-dts';
 import { libInjectCss } from 'vite-plugin-lib-inject-css'
 
 export default defineConfig({
   
-  plugins: [react(),libInjectCss(), dts({ include: ['lib'] })],
+  plugins: [react(),libInjectCss()],
   css: {
     modules: {
       localsConvention: 'camelCaseOnly', 
@@ -15,6 +14,7 @@ export default defineConfig({
   },
   build: {
     copyPublicDir: false,
+    emptyOutDir: false,
     lib: {
       entry: resolve(__dirname, 'lib/main.ts'), 
       formats: ['es'],
