@@ -50,7 +50,7 @@ export function DataTableBody({
                                 }}
                             ><div className="flex items-center justify-between
                   text-left text-white">
-                                    <span className="flex-1 truncate">{col.title}</span>
+                                    <span className="flex-1 whitespace-normal break-words">{col.title}</span>
                                     {<ChevronUpIcon
                                         aria-hidden="true"
                                         className={`
