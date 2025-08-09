@@ -2,9 +2,15 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import { resolve } from "path";
 import { libInjectCss } from "vite-plugin-lib-inject-css";
+import dts from "vite-plugin-dts";
 
 export default defineConfig({
-  plugins: [react(), libInjectCss()],
+  plugins: [react(),
+     libInjectCss(),
+    dts({
+      entryRoot: "lib", // le dossier où sont tes sources TS
+      outDir: "dist",
+    }),],
 
   // utile en dev / monorepo pour éviter une 2e résolution de React via symlinks
   resolve: {

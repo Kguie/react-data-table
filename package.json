@@ -1,6 +1,6 @@
 {
-  "name": "@kguie/react-data-table",
-  "version": "1.0.11",
+  "name": "@kguie/data-table",
+  "version": "1.0.0",
   "description": "Custom data table for React",
   "repository": {
     "type": "git",
@@ -12,12 +12,22 @@
   "private": false,
   "files": [
     "dist",
-    "global.d.ts",
     "README.md"
   ],
-  "main": "dist/index.cjs",
-  "module": "dist/index.es.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/index.es.js",
+  "types": "./dist/main.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/main.d.ts",
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.cjs.js"
+    },
+    "./dist/main.css": "./dist/main.css"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
   "scripts": {
     "dev": "vite",
     "lint": "eslint .",
@@ -29,16 +39,12 @@
     "test:run": "vitest run",
     "test:coverage": "vitest run --coverage"
   },
-  "sideEffects": [
-    "**/*.css"
-  ],
   "peerDependencies": {
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0",
     "@heroicons/react": "^2.2.0"
   },
   "devDependencies": {
-    "@heroicons/react": "^2.2.0",
     "@eslint/js": "^9.25.0",
     "@tailwindcss/postcss": "^4.1.7",
     "@testing-library/jest-dom": "^6.6.4",
