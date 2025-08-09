@@ -1,11 +1,11 @@
 {
   "name": "@kguie/react-data-table",
+  "version": "1.0.11",
+  "description": "Custom data table for React",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Kguie/react-data-table.git"
   },
-  "version": "1.0.3",
-  "description": "Custom data table for React",
   "type": "module",
   "author": "kguie <kevin.guieba@gmail.com>",
   "license": "MIT",
@@ -15,9 +15,9 @@
     "global.d.ts",
     "README.md"
   ],
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "types": "dist/main.d.ts",
+  "main": "dist/index.cjs",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "dev": "vite",
     "lint": "eslint .",
@@ -32,16 +32,13 @@
   "sideEffects": [
     "**/*.css"
   ],
-  "dependencies": {
-    "@heroicons/react": "^2.2.0",
-    "react": ">=18.0.0",
-    "react-dom": ">=18.0.0"
-  },
   "peerDependencies": {
     "react": ">=18.0.0",
-    "react-dom": ">=18.0.0"
+    "react-dom": ">=18.0.0",
+    "@heroicons/react": "^2.2.0"
   },
   "devDependencies": {
+    "@heroicons/react": "^2.2.0",
     "@eslint/js": "^9.25.0",
     "@tailwindcss/postcss": "^4.1.7",
     "@testing-library/jest-dom": "^6.6.4",
@@ -60,7 +57,7 @@
     "postcss": "^8.5.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "tailwindcss": "^4.1.7",
+    "tailwindcss": "^4.1.11",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.30.1",
     "vite": "^6.3.5",
