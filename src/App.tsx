@@ -168,10 +168,10 @@ const superData = () => {
 }
 
 export default function App() {
-  return <div className="p-4">
-    <DataTable data={superData()} columns={columns}  >
+  return <div className="p-4 ">
+    <DataTable  data={superData()} columns={columns}  >
       <DataTableSearch iconColor="white" />
-      <DataTableBody />
+      <DataTableBody  />
       <DataTablePagination />
     </DataTable>
   </div>

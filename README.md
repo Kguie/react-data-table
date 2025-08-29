@@ -4,7 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Overview  
-**react-data-table** is a lightweight, fully customizable React data table library that provides context-driven state management for sorting, filtering, pagination, and internationalization. It leverages Tailwind CSS for styling and supports both French and English labels out of the box.
+**react-data-table** is a lightweight, fully customizable React data table library that provides context-driven state management for sorting, filtering, pagination, and internationalization. It leverages Tailwind CSS for styling and supportsFrench and English.
 
 ## Features
 
@@ -25,12 +25,6 @@ Install from npm or Yarn:
 ```bash
 # npm
 npm install @kguie/react-data-table
-
-# Yarn
-yarn add @kguie/react-data-table
-
-# pnpm
-pnpm add @kguie/react-data-table
 ```
 
 Ensure you have React 18+ as a peer dependency:
@@ -200,7 +194,7 @@ npm run dev
 npm run build
 ```
 
-### Scripts
+### Available Scripts
 
 - `npm run dev` – Start development server
 - `npm run build` – Build library for production
@@ -220,12 +214,10 @@ npm run test:run       # single run
 npm run test:coverage  # with coverage reports  
 ```
 
-## Browser Support
+## Authors
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
+[GUIEBA Kévin](https://github.com/Kguie/)
+
 
 ## License
 
