@@ -1,13 +1,28 @@
 {
   "name": "@kguie/data-table",
-  "version": "1.0.0",
-  "description": "Custom data table for React",
+  "version": "1.0.1",
+  "description": "Custom data table for React with sorting, filtering, pagination, i18n (FR/EN) and TailwindCSS support",
+  "keywords": [
+    "react",
+    "table",
+    "data-table",
+    "pagination",
+    "filter",
+    "sorting",
+    "i18n",
+    "tailwindcss",
+    "typescript"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Kguie/react-data-table.git"
   },
+  "bugs": {
+    "url": "https://github.com/Kguie/react-data-table/issues"
+  },
+  "homepage": "https://github.com/Kguie/react-data-table#readme",
   "type": "module",
-  "author": "kguie <kevin.guieba@gmail.com>",
+  "author": "kevin guieba <kevin.guieba@gmail.com>",
   "license": "MIT",
   "private": false,
   "files": [
