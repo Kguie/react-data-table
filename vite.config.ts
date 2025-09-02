@@ -8,11 +8,11 @@ export default defineConfig({
   plugins: [react(),
      libInjectCss(),
     dts({
-      entryRoot: "lib", // le dossier où sont tes sources TS
+      entryRoot: "lib", 
       outDir: "dist",
     }),],
 
-  // utile en dev / monorepo pour éviter une 2e résolution de React via symlinks
+ 
   resolve: {
     preserveSymlinks: true,
   },

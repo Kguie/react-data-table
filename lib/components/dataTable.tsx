@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 
 import DataTableContext from "../contexts/dataTableContext";
 import { getNestedValue } from "../utils/utils";
@@ -62,6 +62,12 @@ export function DataTable<T extends object>({
         (child) =>
             React.isValidElement(child) && child.type === DataTablePagination
     );
+
+    useEffect(() => {
+        if (search.length !== data.length && page !== 1) {
+            setPage(1)
+        }
+    }, [search])
 
 
     return (
