@@ -68,7 +68,11 @@ export function DataTable<T extends object>({
             setPage(1)
         }
     }, [search])
-
+    useEffect(() => {
+        if (page !== 1) {
+            setPage(1)
+        }
+    }, [pageSize])
 
     return (
         <DataTableContext.Provider

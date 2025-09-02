@@ -1,6 +1,6 @@
 {
   "name": "@kguie/data-table",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Custom data table for React with sorting, filtering, pagination, i18n (FR/EN) and TailwindCSS support",
   "keywords": [
     "react",
