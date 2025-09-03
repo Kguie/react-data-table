@@ -64,15 +64,10 @@ export function DataTable<T extends object>({
     );
 
     useEffect(() => {
-        if (search.length !== data.length && page !== 1) {
-            setPage(1)
-        }
-    }, [search])
-    useEffect(() => {
-        if (page !== 1) {
-            setPage(1)
-        }
-    }, [pageSize])
+        if (page !== 1) setPage(1);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [search, pageSize, sortKey, sortAsc]);
+
 
     return (
         <DataTableContext.Provider
